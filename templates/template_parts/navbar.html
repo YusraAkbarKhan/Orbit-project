@@ -1,0 +1,78 @@
+{% load static %}
+
+<nav class="main__navbar navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'users:HomeView' %}">
+        TradeOrbits
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
+
+          <li>
+            <a class="nav-link" href="#">
+              Vouchers
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              Brokers
+            </a>
+          </li>
+        </ul>
+
+        
+        {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+        <ul class="navbar-nav my-2 my-lg-0 ms-auto navbar-nav-scroll align-items-center">
+          <div class="input-group mb-3 email-text">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button
+              class="btn btn-outline-secondary btn-search"
+              type="button"
+              id="button-addon2"
+            >
+            <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
+            {% comment %} <li class="nav-item dropdown ms-auto">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img
+                  src="{{request.user.get_image_url}}"
+                  alt="{{request.user.username}}"
+                  width="50px"
+                  height="50px"
+                  style="object-fit: cover; border-radius: 50%;"
+                />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="{% url 'users:ProfileView' %}">Manage Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'users:ChangePasswordView' %}">Change Password</a></li>
+                <li><a class="dropdown-item" href="{% url 'users:LogoutView' %}">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        {% else %}
+          <ul class="navbar-nav my-2 my-lg-0 ms-auto navbar-nav-scroll">
+            <div class="d-flex">
+              <a href="{% url 'users:LoginView' %}" class="btn btn-secondary btn-sm mx-2">
+                Login
+              </a>
+              <a href="{% url 'users:RegisterView' %}" class="btn btn-secondary btn-sm mx-2">
+                Sign up
+              </a>
+            </div>
+          </ul>
+        {% endif %} {% endcomment %}
+
+      </div>
+    </div>
+  </nav>
